@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-homolog
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-homolog
+  template:
+    metadata:
+      labels:
+        app: hello-world-homolog
+    spec:
+      containers:
+      - name: hello-world-homolog
+        image: localhost:32000/hello-world:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
